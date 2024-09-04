@@ -1,12 +1,12 @@
 import { formatCurrency } from "@/src/utils";
 import { Product } from "@prisma/client";
 import Image from "next/image";
+import AddProductButton from "./AddProductButton";
 
 type ProductcardProps = {
   product: Product;
 };
 export default function ProductCard({ product }: ProductcardProps) {
-    
   return (
     <div className="border bg-white">
       <Image
@@ -23,10 +23,7 @@ export default function ProductCard({ product }: ProductcardProps) {
           {formatCurrency(product.price)}
         </p>
 
-        <button
-          type="button"
-          className="bg-indigo-600 hover:bg-indigo-800 text-white w-full mt-5 p-3 uppercase font-bold cursor-pointer"
-        > Agregar</button>
+        <AddProductButton product={product} />
       </div>
     </div>
   );
